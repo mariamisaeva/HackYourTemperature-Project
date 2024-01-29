@@ -5,7 +5,7 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 
-app.get('/', (request, response) => {
+app.get('/', (req, res) => {
 
     response.send('hello from backend to frontend!');
 
@@ -13,7 +13,7 @@ app.get('/', (request, response) => {
 
 app.post('/weather', (req, res) => {
     const city = req.body.cityName;
-    res.send(`Your city Name is : ${city}`);
+    res.send(`You entered : ${city}`);
 });
 
 app.listen(PORT, () => {
