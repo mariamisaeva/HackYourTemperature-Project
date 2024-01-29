@@ -1,7 +1,9 @@
-//import express from 'express';
-const express = require('express');
+//const express = require('express');
+import express from 'express';
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+app.use(express.json());
 
 app.get('/', (request, response) => {
 
@@ -9,6 +11,12 @@ app.get('/', (request, response) => {
 
 });
 
+app.post('/weather', (req, res) => {
+    const city = req.body.cityName;
+    res.send(`Your city Name is : ${city}`);
+});
+
 app.listen(PORT, () => {
     console.log(`The server is running on port ${PORT}`);
 });
+
